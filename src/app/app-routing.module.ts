@@ -19,6 +19,11 @@ const routes: Routes = [
     path: 'register',
     component:RegisterComponent,
   },
+  // {
+  //   path:'**',
+  //   component: HomeComponent,
+  // },
+
   {
     path: 'login',
     component: LoginComponent,
