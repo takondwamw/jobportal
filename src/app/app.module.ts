@@ -11,6 +11,8 @@ import { JobListingComponent } from './Pages/job-listing/job-listing.component';
 import { JobsComponent } from './Pages/jobs/jobs.component';
 import { MyJobsComponent } from './Pages/my-jobs/my-jobs.component';
 import { JobsCreateComponent } from './Pages/jobs-create/jobs-create.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { JobsCreateComponent } from './Pages/jobs-create/jobs-create.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
