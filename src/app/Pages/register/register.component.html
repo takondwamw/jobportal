@@ -113,7 +113,7 @@
               </div>
               
               <div *ngIf="!isHiring"> 
-                    <form class="px-md-2" [formGroup]="jobSeekerForm" (ngSubmit)="registerAsJobSeeker()">
+                    <form class="px-md-2" [formGroup]="jobSeekerForm" (ngSubmit)="registerJSeeker()">
                       <h2 class="text-center">Register as Job Hunter</h2>
                     <div class="form-outline mb-4">
                       <input type="text" id="form3Example1q" formControlName="FullName" class="form-control" />
@@ -121,43 +121,43 @@
                     </div>
       
                     <div class="row">
-                      <div class="col-md-4 mb-4">
+                      <div class="col-md-6 mb-4">
                         <div class="form-outline datepicker">
                           <input type="email" formControlName="EmailId" class="form-control" id="email" />
                           <label for="email" class="form-label">Email</label>
                         </div>
                       </div>
                       
-                      <div class="col-md-4 mb-4">
+                      <div class="col-md-6 mb-4">
                         <div class="form-outline datepicker">
                           <input type="text" formControlName="MobileNo" class="form-control" id="mobile" />
                           <label for="mobile" class="form-label">Mobile</label>
                         </div>
                       </div>
 
-                      <div class="col-md-4 mb-4">
-                        <div class="form-outline datepicker">
-                          <input type="text" formControlName="ExperienceStatus" class="form-control" id="phone" />
-                          <label for="phone" class="form-label">Experience Status</label>
-                        </div>
-                      </div>
                     </div>
       
                     <div class="row">
+
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline datepicker">
+                            <!-- <input type="text" formControlName="ExperienceStatus" class="form-control" id="phone" /> -->
+                            <select formControlName="ExperienceStatus" class="form-control">
+                              <option value="" selected disabled>Select Experience</option>
+                              <option value="Fresher">Fresher</option>
+                              <option value="Experienced">Experienced</option>
+                            </select>
+                            <label for="phone" class="form-label">Experience Status</label>
+
+                          </div>
+                        </div>
+
                         <div class="col-md-6 mb-4">
                           <div class="form-outline datepicker">
                             <input type="text" formControlName="ResumeUrl" class="form-control" id="logo_url" />
                             <label for="logo_url" class="form-label">Resume Url</label>
                           </div>
-                        </div>
-                        
-                        <div class="col-md-6 mb-4">
-                          <div class="form-outline datepicker">
-                            <input type="text" formControlName="gstNo" class="form-control" id="gst_no" />
-                            <label for="gst_no" class="form-label">GST NO</label>
-                          </div>
-                        </div>
-
+                        </div>                 
                     </div>
                         
                     <button type="submit" class="btn btn-success btn-lg mb-1" [disabled]="!jobSeekerForm.valid">Register</button>

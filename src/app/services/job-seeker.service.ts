@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/environment';
-// import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { JobSeeker } from '../interfaces/job-seeker';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class JobSeekerService {
 
   // http://freeapi.miniprojectideas.com/api/JobPortal/AddNewJobSeeker
 
-  registerAsJobSeeker(data:object){
-      this._http.post(`${environment._baseUrl}/AddNewJobSeeker`,data);
+  registerAsJobSeeker(data:JobSeeker): Observable<any>{
+      return this._http.post(`${environment._baseUrl}/AddNewJobSeeker`,data);
   }
 }

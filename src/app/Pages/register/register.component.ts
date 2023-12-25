@@ -3,6 +3,7 @@ import { Component , OnInit } from '@angular/core';
 import { Company } from 'src/app/interfaces/company';
 import { CompanyService } from 'src/app/services/company.service';
 import { FormGroup , FormBuilder, Validators } from '@angular/forms';
+import { JobSeekerService } from 'src/app/services/job-seeker.service';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
     // isjobSeeker: boolean = false;
     isHiring!: boolean;
 
-    constructor(private companyService: CompanyService, private _http: HttpClient,private _fb: FormBuilder){ 
+    constructor(private companyService: CompanyService, private jobSeekerService: JobSeekerService, private _http: HttpClient,private _fb: FormBuilder){ 
       this.companyForm = this._fb.group({
         employerId: this.id,
         companyName: ['', Validators.required],
@@ -36,13 +37,13 @@ export class RegisterComponent implements OnInit {
       
       
       this.jobSeekerForm = this._fb.group({
-        JobSeekerId: this.id,
+        JobSeekerID: 0,
         FullName: ['', Validators.required],
         EmailId: ['',Validators.required],
         MobileNo: ['',Validators.required],
         ExperienceStatus: ['',Validators.required],
         ResumeUrl: ['',Validators.required],
-        JobSeekerSkill: ['',Validators.required],
+        // JobSeekerSkill: ['',Validators.required],
       })
 
       // console.log(this.id);
@@ -70,6 +71,22 @@ export class RegisterComponent implements OnInit {
         })
       }
   
+    }
+
+    registerJSeeker(){
+        // this.jobService.registerAsJobSeeker()
+        if(this.jobSeekerForm.valid){
+          this.jobSeekerService.registerAsJobSeeker(this.jobSeekerForm.value).subscribe({
+            next: (resp:any)=>{
+                  if(resp.result == true){
+                    this.sMessage = resp.message;
+                  }
+            },
+            error: (error:any)=>{
+               return this.eMessage = error;
+            }
+          })
+        }
     }
 
     ngOnInit(): void {
