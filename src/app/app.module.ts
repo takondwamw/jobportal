@@ -33,7 +33,7 @@ import { ReactiveFormsModule , FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [JobsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
