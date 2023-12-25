@@ -15,6 +15,8 @@ export class RegisterComponent implements OnInit {
     sMessage!:string;
     eMessage!:string;
     id:number = Math.floor((Math.random()*1000));
+    // isjobSeeker: boolean = false;
+    isHiring!: boolean;
 
     constructor(private companyService: CompanyService, private _http: HttpClient,private _fb: FormBuilder){ 
       this.companyForm = this._fb.group({
