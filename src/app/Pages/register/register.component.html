@@ -11,8 +11,8 @@
 
               <div class="row mb-5">
                 <div class="text-center brn-group">
-                  <button class="btn btn-group-item btn-primary" (click)="isHiring=true">Job Seeker ?</button>
-                  <button class="btn btn-group-item btn-outline-dark bg-transparent" (click)="isHiring=false">hiring ?</button>
+                  <button class="btn btn-group-item btn-primary" (click)="isHiring=false">Job Seeker ?</button>
+                  <button class="btn btn-group-item btn-outline-dark bg-transparent" (click)="isHiring=true">hiring ?</button>
 
                 </div>
               </div>
@@ -21,182 +21,186 @@
 
               <div class="col-12 alert alert-danger rounded bg-danger text-white" *ngIf="eMessage">{{ eMessage }}</div>
 
-  
-              <form class="px-md-2" *ngIf="isHiring" [formGroup]="companyForm" (ngSubmit)="register()">
+              <div  *ngIf="isHiring">
+                <form class="px-md-2" [formGroup]="companyForm" (ngSubmit)="register()">
                 
-                <h2 class="text-center">Register if you are Hiring</h2>
-                
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1q" formControlName="companyName" class="form-control" />
-                  <label class="form-label" for="form3Example1q">Company Name</label>
-                </div>
-  
-                <div class="row">
-                  <div class="col-md-4 mb-4">
-                    <div class="form-outline datepicker">
-                      <input type="email" formControlName="emailId" class="form-control" id="email" />
-                      <label for="email" class="form-label">Email</label>
-                    </div>
-                  </div>
+                  <h2 class="text-center">Register if you are Hiring</h2>
                   
-                  <div class="col-md-4 mb-4">
-                    <div class="form-outline datepicker">
-                      <input type="text" formControlName="mobileNo" class="form-control" id="mobile" />
-                      <label for="mobile" class="form-label">Mobile</label>
-                    </div>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example1q" formControlName="companyName" class="form-control" />
+                    <label class="form-label" for="form3Example1q">Company Name</label>
                   </div>
-
-                  <div class="col-md-4 mb-4">
-                    <div class="form-outline datepicker">
-                      <input type="text" formControlName="phoneNo" class="form-control" id="phone" />
-                      <label for="phone" class="form-label">Phone</label>
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                      <div class="form-outline datepicker">
-                        <input type="text" formControlName="logoUrl" class="form-control" id="logo_url" />
-                        <label for="logo_url" class="form-label">Company Logo Url</label>
-                      </div>
-                    </div>
-                    
-                    <div class="col-md-6 mb-4">
-                      <div class="form-outline datepicker">
-                        <input type="text" formControlName="gstNo" class="form-control" id="gst_no" />
-                        <label for="gst_no" class="form-label">GST NO</label>
-                      </div>
-                    </div>
-
-                </div>
-               
-                <div class="row">
+    
+                  <div class="row">
                     <div class="col-md-4 mb-4">
                       <div class="form-outline datepicker">
-                        <input type="text" formControlName="city" class="form-control" id="city" />
-                        <label for="city" class="form-label">City</label>
+                        <input type="email" formControlName="emailId" class="form-control" id="email" />
+                        <label for="email" class="form-label">Email</label>
                       </div>
                     </div>
                     
                     <div class="col-md-4 mb-4">
                       <div class="form-outline datepicker">
-                        <input type="text" formControlName="state" class="form-control" id="state" />
-                        <label for="state" class="form-label">State</label>
+                        <input type="text" formControlName="mobileNo" class="form-control" id="mobile" />
+                        <label for="mobile" class="form-label">Mobile</label>
                       </div>
                     </div>
   
                     <div class="col-md-4 mb-4">
                       <div class="form-outline datepicker">
-                        <input type="text" formControlName="pinCode" class="form-control" id="pin_code" />
-                        <label for="pin_code" class="form-label">Pin-code</label>
+                        <input type="text" formControlName="phoneNo" class="form-control" id="phone" />
+                        <label for="phone" class="form-label">Phone</label>
                       </div>
                     </div>
                   </div>
-
-                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
-                  <div class="col-md-12">
-  
-                    <div class="form-outline">
-                        <textarea formControlName="companyAddress" id="" cols="30" rows="5" class="form-control">
-                        </textarea>   
-                        <label class="form-label" for="form3Example1w">Address</label>
-                                          
-                    </div>
+    
+                  <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline datepicker">
+                          <input type="text" formControlName="logoUrl" class="form-control" id="logo_url" />
+                          <label for="logo_url" class="form-label">Company Logo Url</label>
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline datepicker">
+                          <input type="text" formControlName="gstNo" class="form-control" id="gst_no" />
+                          <label for="gst_no" class="form-label">GST NO</label>
+                        </div>
+                      </div>
   
                   </div>
-                </div>
+                 
+                  <div class="row">
+                      <div class="col-md-4 mb-4">
+                        <div class="form-outline datepicker">
+                          <input type="text" formControlName="city" class="form-control" id="city" />
+                          <label for="city" class="form-label">City</label>
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-4 mb-4">
+                        <div class="form-outline datepicker">
+                          <input type="text" formControlName="state" class="form-control" id="state" />
+                          <label for="state" class="form-label">State</label>
+                        </div>
+                      </div>
+    
+                      <div class="col-md-4 mb-4">
+                        <div class="form-outline datepicker">
+                          <input type="text" formControlName="pinCode" class="form-control" id="pin_code" />
+                          <label for="pin_code" class="form-label">Pin-code</label>
+                        </div>
+                      </div>
+                    </div>
   
-                <button type="submit" class="btn btn-success btn-lg mb-1" [disabled]="!companyForm.valid">Register</button>
-  
-              </form>
-
-              <form *nfIf="!isHiring" class="px-md-2" [formGroup]="companyForm" (ngSubmit)="register()">
-                  <h2 class="text-center">Register as Job Hunter</h2>
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1q" formControlName="companyName" class="form-control" />
-                  <label class="form-label" for="form3Example1q">Company Name</label>
-                </div>
-  
-                <div class="row">
-                  <div class="col-md-4 mb-4">
-                    <div class="form-outline datepicker">
-                      <input type="email" formControlName="emailId" class="form-control" id="email" />
-                      <label for="email" class="form-label">Email</label>
+                  <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                    <div class="col-md-12">
+    
+                      <div class="form-outline">
+                          <textarea formControlName="companyAddress" id="" cols="30" rows="5" class="form-control">
+                          </textarea>   
+                          <label class="form-label" for="form3Example1w">Address</label>
+                                            
+                      </div>
+    
                     </div>
                   </div>
+    
+                  <button type="submit" class="btn btn-success btn-lg mb-1" [disabled]="!companyForm.valid">Register</button>
+    
+                </form>
+              </div>
+              
+              <div *ngIf="!isHiring"> 
+                    <form class="px-md-2" [formGroup]="companyForm" (ngSubmit)="register()">
+                      <h2 class="text-center">Register as Job Hunter</h2>
+                    <div class="form-outline mb-4">
+                      <input type="text" id="form3Example1q" formControlName="companyName" class="form-control" />
+                      <label class="form-label" for="form3Example1q">Company Name</label>
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-md-4 mb-4">
+                        <div class="form-outline datepicker">
+                          <input type="email" formControlName="emailId" class="form-control" id="email" />
+                          <label for="email" class="form-label">Email</label>
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-4 mb-4">
+                        <div class="form-outline datepicker">
+                          <input type="text" formControlName="mobileNo" class="form-control" id="mobile" />
+                          <label for="mobile" class="form-label">Mobile</label>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 mb-4">
+                        <div class="form-outline datepicker">
+                          <input type="text" formControlName="phoneNo" class="form-control" id="phone" />
+                          <label for="phone" class="form-label">Phone</label>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline datepicker">
+                            <input type="text" formControlName="logoUrl" class="form-control" id="logo_url" />
+                            <label for="logo_url" class="form-label">Company Logo Url</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline datepicker">
+                            <input type="text" formControlName="gstNo" class="form-control" id="gst_no" />
+                            <label for="gst_no" class="form-label">GST NO</label>
+                          </div>
+                        </div>
+
+                    </div>
                   
-                  <div class="col-md-4 mb-4">
-                    <div class="form-outline datepicker">
-                      <input type="text" formControlName="mobileNo" class="form-control" id="mobile" />
-                      <label for="mobile" class="form-label">Mobile</label>
-                    </div>
-                  </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline datepicker">
+                            <input type="text" formControlName="city" class="form-control" id="city" />
+                            <label for="city" class="form-label">City</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline datepicker">
+                            <input type="text" formControlName="state" class="form-control" id="state" />
+                            <label for="state" class="form-label">State</label>
+                          </div>
+                        </div>
+      
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline datepicker">
+                            <input type="text" formControlName="pinCode" class="form-control" id="pin_code" />
+                            <label for="pin_code" class="form-label">Pin-code</label>
+                          </div>
+                        </div>
+                      </div>
 
-                  <div class="col-md-4 mb-4">
-                    <div class="form-outline datepicker">
-                      <input type="text" formControlName="phoneNo" class="form-control" id="phone" />
-                      <label for="phone" class="form-label">Phone</label>
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                      <div class="form-outline datepicker">
-                        <input type="text" formControlName="logoUrl" class="form-control" id="logo_url" />
-                        <label for="logo_url" class="form-label">Company Logo Url</label>
+                    <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                      <div class="col-md-12">
+      
+                        <div class="form-outline">
+                            <textarea formControlName="companyAddress" id="" cols="30" rows="5" class="form-control">
+                            </textarea>   
+                            <label class="form-label" for="form3Example1w">Address</label>
+                                              
+                        </div>
+      
                       </div>
                     </div>
-                    
-                    <div class="col-md-6 mb-4">
-                      <div class="form-outline datepicker">
-                        <input type="text" formControlName="gstNo" class="form-control" id="gst_no" />
-                        <label for="gst_no" class="form-label">GST NO</label>
-                      </div>
-                    </div>
-
-                </div>
-               
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                      <div class="form-outline datepicker">
-                        <input type="text" formControlName="city" class="form-control" id="city" />
-                        <label for="city" class="form-label">City</label>
-                      </div>
-                    </div>
-                    
-                    <div class="col-md-4 mb-4">
-                      <div class="form-outline datepicker">
-                        <input type="text" formControlName="state" class="form-control" id="state" />
-                        <label for="state" class="form-label">State</label>
-                      </div>
-                    </div>
-  
-                    <div class="col-md-4 mb-4">
-                      <div class="form-outline datepicker">
-                        <input type="text" formControlName="pinCode" class="form-control" id="pin_code" />
-                        <label for="pin_code" class="form-label">Pin-code</label>
-                      </div>
-                    </div>
-                  </div>
-
-                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
-                  <div class="col-md-12">
-  
-                    <div class="form-outline">
-                        <textarea formControlName="companyAddress" id="" cols="30" rows="5" class="form-control">
-                        </textarea>   
-                        <label class="form-label" for="form3Example1w">Address</label>
-                                          
-                    </div>
-  
-                  </div>
-                </div>
-  
-                <button type="submit" class="btn btn-success btn-lg mb-1" [disabled]="!companyForm.valid">Register</button>
-  
-              </form>
+      
+                    <button type="submit" class="btn btn-success btn-lg mb-1" [disabled]="!companyForm.valid">Register</button>
+      
+                    </form>
+              </div>
+              
 
               <!-- {{#if jobSeeker }} -->
   
