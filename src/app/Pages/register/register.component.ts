@@ -12,6 +12,7 @@ import { FormGroup , FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
     companyForm!: FormGroup;  
+    jobSeekerForm!: FormGroup;
     sMessage!:string;
     eMessage!:string;
     id:number = Math.floor((Math.random()*1000));
@@ -31,9 +32,23 @@ export class RegisterComponent implements OnInit {
         gstNo: ['',Validators.required],
         pinCode: ['',Validators.required],
         companyAddress: ['',Validators.required]
-      })    
-      console.log(this.id);
+      }) ;
+      
+      
+      this.jobSeekerForm = this._fb.group({
+        JobSeekerId: this.id,
+        FullName: ['', Validators.required],
+        EmailId: ['',Validators.required],
+        MobileNo: ['',Validators.required],
+        ExperienceStatus: ['',Validators.required],
+        ResumeUrl: ['',Validators.required],
+        JobSeekerSkill: ['',Validators.required],
+      })
+
+      // console.log(this.id);
     }
+
+
 
     register(){
       if(this.companyForm.valid){
