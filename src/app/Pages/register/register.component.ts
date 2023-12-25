@@ -11,7 +11,7 @@ import { FormGroup , FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-    companyForm!: FormGroup<Company>;  
+    companyForm!: FormGroup;  
     sMessage!:string;
     eMessage!:string;
     id:number = Math.floor((Math.random()*1000));
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
         pinCode: ['',Validators.required],
         companyAddress: ['',Validators.required]
       })    
-      // console.log(this.id);
+      console.log(this.id);
     }
 
     register(){
