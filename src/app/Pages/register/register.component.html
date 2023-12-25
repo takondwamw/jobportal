@@ -8,6 +8,19 @@
               alt="Sample photo"> -->
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration</h3>
+
+              <div class="row mb-5 ">
+                <div class="text-center brn-group">
+                  <button class="btn btn-group-item btn-primary">Jobs Seeker ?</button>
+                  <button class="btn btn-group-item btn-outline-dark bg-transparent">hiring ?</button>
+
+                </div>
+              </div>
+
+              <div class="col-12 alert alert-sucesss bg-success text-white rounded" *ngIf="sMessage">{{ sMessage }}</div>
+
+              <div class="col-12 alert alert-danger rounded bg-danger text-white" *ngIf="eMessage">{{ eMessage }}</div>
+
   
               <form class="px-md-2" [formGroup]="companyForm" (ngSubmit)="register()">
   

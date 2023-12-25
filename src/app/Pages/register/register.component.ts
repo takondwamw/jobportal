@@ -11,10 +11,14 @@ import { FormGroup , FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-    companyForm!: FormGroup;  
+    companyForm!: FormGroup<Company>;  
+    sMessage!:string;
+    eMessage!:string;
+    id:number = Math.floor((Math.random()*1000));
 
     constructor(private companyService: CompanyService, private _http: HttpClient,private _fb: FormBuilder){ 
       this.companyForm = this._fb.group({
+        employerId: this.id,
         companyName: ['', Validators.required],
         emailId: ['',Validators.required],
         phoneNo: ['',Validators.required],
@@ -26,6 +30,7 @@ export class RegisterComponent implements OnInit {
         pinCode: ['',Validators.required],
         companyAddress: ['',Validators.required]
       })    
+      // console.log(this.id);
     }
 
     register(){
@@ -34,10 +39,16 @@ export class RegisterComponent implements OnInit {
         console.log(this.companyForm.value);
         this.companyService.addNewCompany(this.companyForm.value).subscribe({
           next: (resp: any)=>{
-            console.log(resp);
+            console.log(resp.message);
+            if(resp.result == true) {
+              return this.sMessage = resp.message;
+            }else{
+              return this.eMessage = resp.message;
+            }
           },
           error: (error) => {
             console.error(error);
+            return this.eMessage = error;
           }
         })
       }
@@ -46,4 +57,5 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit(): void {
     }
+    
 }
