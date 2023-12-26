@@ -8,7 +8,9 @@ import { JobListingComponent } from './Pages/job-listing/job-listing.component';
 import { MyJobsComponent } from './Pages/my-jobs/my-jobs.component';
 import { JobDetailsComponent } from './Pages/job-details/job-details.component';
 import { JobsCreateComponent } from './Pages/jobs-create/jobs-create.component';
-
+import { DashboardComponent } from './Pages/dashboard/dashboard.component';
+// import { DashboardComponent }
+ 
 const routes: Routes = [
   {
     path: '',
@@ -19,10 +21,10 @@ const routes: Routes = [
     path: 'register',
     component:RegisterComponent,
   },
-  // {
-  //   path:'**',
-  //   component: HomeComponent,
-  // },
+  {
+    path:'home',
+    component: DashboardComponent,
+  },
 
   {
     path: 'login',

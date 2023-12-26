@@ -3,9 +3,7 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-8 col-xl-6">
           <div class="card rounded-3">
-            <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
-              class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
-              alt="Sample photo"> -->
+          
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration</h3>
 
@@ -22,33 +20,33 @@
               <div class="col-12 alert alert-danger rounded bg-danger text-white" *ngIf="eMessage">{{ eMessage }}</div>
 
               <div  *ngIf="isHiring">
-                <form class="px-md-2" [formGroup]="companyForm" (ngSubmit)="register()">
+                <form class="px-md-2"  (ngSubmit)="register()">
                 
                   <h2 class="text-center">Register if you are Hiring</h2>
                   
                   <div class="form-outline mb-4">
-                    <input type="text" id="form3Example1q" formControlName="companyName" class="form-control" />
+                    <input type="text" id="form3Example1q" [(ngModel)]="employerObj.companyName" name="companyName" class="form-control" />
                     <label class="form-label" for="form3Example1q">Company Name</label>
                   </div>
     
                   <div class="row">
                     <div class="col-md-4 mb-4">
                       <div class="form-outline datepicker">
-                        <input type="email" formControlName="emailId" class="form-control" id="email" />
+                        <input type="email" [(ngModel)]="employerObj.EmailId" name="EmailId" class="form-control" id="email" />
                         <label for="email" class="form-label">Email</label>
                       </div>
                     </div>
                     
                     <div class="col-md-4 mb-4">
                       <div class="form-outline datepicker">
-                        <input type="text" formControlName="mobileNo" class="form-control" id="mobile" />
+                        <input type="text" [(ngModel)]="employerObj.MobileNo" name="MobileNo" class="form-control" id="mobile" />
                         <label for="mobile" class="form-label">Mobile</label>
                       </div>
                     </div>
   
                     <div class="col-md-4 mb-4">
                       <div class="form-outline datepicker">
-                        <input type="text" formControlName="phoneNo" class="form-control" id="phone" />
+                        <input type="text" [(ngModel)]="employerObj.PhoneNo" name="PhoneNo" class="form-control" id="phone" />
                         <label for="phone" class="form-label">Phone</label>
                       </div>
                     </div>
@@ -57,14 +55,14 @@
                   <div class="row">
                       <div class="col-md-6 mb-4">
                         <div class="form-outline datepicker">
-                          <input type="text" formControlName="logoUrl" class="form-control" id="logo_url" />
+                          <input type="text" [(ngModel)]="employerObj.logoURL" name="logoURL" class="form-control" id="logo_url" />
                           <label for="logo_url" class="form-label">Company Logo Url</label>
                         </div>
                       </div>
                       
                       <div class="col-md-6 mb-4">
                         <div class="form-outline datepicker">
-                          <input type="text" formControlName="gstNo" class="form-control" id="gst_no" />
+                          <input type="text" [(ngModel)]="employerObj.GstNo" name="GstNo" class="form-control" id="gst_no" />
                           <label for="gst_no" class="form-label">GST NO</label>
                         </div>
                       </div>
@@ -74,21 +72,21 @@
                   <div class="row">
                       <div class="col-md-4 mb-4">
                         <div class="form-outline datepicker">
-                          <input type="text" formControlName="city" class="form-control" id="city" />
+                          <input type="text" [(ngModel)]="employerObj.City" name="City" class="form-control" id="city" />
                           <label for="city" class="form-label">City</label>
                         </div>
                       </div>
                       
                       <div class="col-md-4 mb-4">
                         <div class="form-outline datepicker">
-                          <input type="text" formControlName="state" class="form-control" id="state" />
+                          <input type="text" [(ngModel)]="employerObj.State" name="State" class="form-control" id="state" />
                           <label for="state" class="form-label">State</label>
                         </div>
                       </div>
     
                       <div class="col-md-4 mb-4">
                         <div class="form-outline datepicker">
-                          <input type="text" formControlName="pinCode" class="form-control" id="pin_code" />
+                          <input type="text" [(ngModel)]="employerObj.PinCode" name="Pincode" id="pin_code" />
                           <label for="pin_code" class="form-label">Pin-code</label>
                         </div>
                       </div>
@@ -98,7 +96,7 @@
                     <div class="col-md-12">
     
                       <div class="form-outline">
-                          <textarea formControlName="companyAddress" id="" cols="30" rows="5" class="form-control">
+                          <textarea [(ngModel)]="employerObj.CompanyAddress" name="CompanyAddress" id="" cols="30" rows="5" class="form-control">
                           </textarea>   
                           <label class="form-label" for="form3Example1w">Address</label>
                                             
@@ -107,30 +105,30 @@
                     </div>
                   </div>
     
-                  <button type="submit" class="btn btn-success btn-lg mb-1" [disabled]="!companyForm.valid">Register</button>
+                  <button type="submit" class="btn btn-success btn-lg mb-1">Register</button>
     
                 </form>
               </div>
               
               <div *ngIf="!isHiring"> 
-                    <form class="px-md-2" [formGroup]="jobSeekerForm" (ngSubmit)="registerJSeeker()">
+                    <form class="px-md-2" (ngSubmit)="registerJSeeker()">
                       <h2 class="text-center">Register as Job Hunter</h2>
                     <div class="form-outline mb-4">
-                      <input type="text" id="form3Example1q" formControlName="FullName" class="form-control" />
+                      <input type="text" id="form3Example1q" [(ngModel)]="jobSeekerObj.FullName" name="FullName" class="form-control" />
                       <label class="form-label" for="form3Example1q">Full Name</label>
                     </div>
       
                     <div class="row">
                       <div class="col-md-6 mb-4">
                         <div class="form-outline datepicker">
-                          <input type="email" formControlName="EmailId" class="form-control" id="email" />
+                          <input type="email" [(ngModel)]="jobSeekerObj.EmailId" name="EmailId" class="form-control" id="email" />
                           <label for="email" class="form-label">Email</label>
                         </div>
                       </div>
                       
                       <div class="col-md-6 mb-4">
                         <div class="form-outline datepicker">
-                          <input type="text" formControlName="MobileNo" class="form-control" id="mobile" />
+                          <input type="text" [(ngModel)]="jobSeekerObj.MobileNo" name="MobileNo" class="form-control" id="mobile" />
                           <label for="mobile" class="form-label">Mobile</label>
                         </div>
                       </div>
@@ -142,7 +140,7 @@
                         <div class="col-md-6 mb-4">
                           <div class="form-outline datepicker">
                             <!-- <input type="text" formControlName="ExperienceStatus" class="form-control" id="phone" /> -->
-                            <select formControlName="ExperienceStatus" class="form-control">
+                            <select [(ngModel)]="jobSeekerObj.ExperienceStatus" name="ExperienceStatus" class="form-control">
                               <option value="" selected disabled>Select Experience</option>
                               <option value="Fresher">Fresher</option>
                               <option value="Experienced">Experienced</option>
@@ -154,13 +152,13 @@
 
                         <div class="col-md-6 mb-4">
                           <div class="form-outline datepicker">
-                            <input type="text" formControlName="ResumeUrl" class="form-control" id="logo_url" />
+                            <input type="text" [(ngModel)]="jobSeekerObj.ResumeUrl" name="ResumeUrl" class="form-control" id="logo_url" />
                             <label for="logo_url" class="form-label">Resume Url</label>
                           </div>
                         </div>                 
                     </div>
                         
-                    <button type="submit" class="btn btn-success btn-lg mb-1" [disabled]="!jobSeekerForm.valid">Register</button>
+                    <button type="submit" class="btn btn-success btn-lg mb-1">Register</button>
       
                     </form>
               </div>
@@ -172,3 +170,6 @@
       </div>
     </div>
   </section>
+
+
+  

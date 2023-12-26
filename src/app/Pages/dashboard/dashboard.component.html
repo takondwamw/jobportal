@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="my-5 pt-5 mb-5 pb-5">
+        <div class="card" *ngIf="app.isLoggedIn && userInfo.userRole == 'Employer' ">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <i class="fa fa-briefcase text-success"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" routerLink="/jobs/create">Post A Job</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

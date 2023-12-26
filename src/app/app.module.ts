@@ -14,6 +14,7 @@ import { JobsCreateComponent } from './Pages/jobs-create/jobs-create.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     JobsComponent,
     MyJobsComponent,
     JobsCreateComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

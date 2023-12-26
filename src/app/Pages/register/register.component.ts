@@ -20,7 +20,32 @@ export class RegisterComponent implements OnInit {
     // isjobSeeker: boolean = false;
     isHiring!: boolean;
 
+    // try second approach tione
+    employerObj: any = {
+      "EmployerId": 0,
+      "CompanyName": "",
+      "EmailId": "",
+      "MobileNo": "",
+      "PhoneNo": "",
+      "CompanyAddress": "",
+      "City": "",
+      "State": "",
+      "PinCode": "",
+      "LogoURL": "",
+      "GstNo": ""
+    }
+
+    jobSeekerObj: any = {
+      "JobSeekerId": 0,
+      "FullName": "",
+      "EmailId": "",
+      "MobileNo": "",
+      "ExperienceStatus": "",
+      "ResumeUrl": "",
+    };
+
     constructor(private companyService: CompanyService, private jobSeekerService: JobSeekerService, private _http: HttpClient,private _fb: FormBuilder){ 
+      
       this.companyForm = this._fb.group({
         employerId: this.id,
         companyName: ['', Validators.required],
@@ -52,41 +77,68 @@ export class RegisterComponent implements OnInit {
 
 
     register(){
-      if(this.companyForm.valid){
-        // alert("yes")
-        console.log(this.companyForm.value);
-        this.companyService.addNewCompany(this.companyForm.value).subscribe({
-          next: (resp: any)=>{
-            console.log(resp.message);
-            if(resp.result == true) {
-              return this.sMessage = resp.message;
-            }else{
-              return this.eMessage = resp.message;
-            }
-          },
-          error: (error) => {
-            console.error(error);
-            return this.eMessage = error;
+
+      // if(this.companyForm.valid){
+      //   // alert("yes")
+      //   console.log(this.companyForm.value);
+        // this.companyService.addNewCompany(this.companyForm.value).subscribe({
+        //   next: (resp: any)=>{
+        //     console.log(resp.message);
+        //     if(resp.result == true) {
+        //       return this.sMessage = resp.message;
+        //     }else{
+        //       return this.eMessage = resp.message;
+        //     }
+        //   },
+        //   error: (error) => {
+        //     console.error(error);
+        //     return this.eMessage = error;
+        //   }
+        // })
+
+      // }
+      this.companyService.addNewCompany(this.employerObj).subscribe({
+        next: (resp: any)=>{
+          console.log(resp.message);
+          if(resp.result == true) {
+            return this.sMessage = resp.message;
+          }else{
+            return this.eMessage = resp.message;
           }
-        })
-      }
+        },
+        error: (error) => {
+          console.error(error);
+          return this.eMessage = error;
+        }
+      })
   
     }
 
     registerJSeeker(){
         // this.jobService.registerAsJobSeeker()
-        if(this.jobSeekerForm.valid){
-          this.jobSeekerService.registerAsJobSeeker(this.jobSeekerForm.value).subscribe({
-            next: (resp:any)=>{
-                  if(resp.result == true){
-                    this.sMessage = resp.message;
-                  }
-            },
-            error: (error:any)=>{
-               return this.eMessage = error;
-            }
-          })
-        }
+        // if(this.jobSeekerForm.valid){
+        //   this.jobSeekerService.registerAsJobSeeker(this.jobSeekerForm.value).subscribe({
+        //     next: (resp:any)=>{
+        //           if(resp.result == true){
+        //             this.sMessage = resp.message;
+        //           }
+        //     },
+        //     error: (error:any)=>{
+        //        return this.eMessage = error;
+        //     }
+        //   })
+        // }
+
+        this.jobSeekerService.registerAsJobSeeker(this.jobSeekerObj).subscribe({
+          next: (resp:any)=>{
+                if(resp.result == true){
+                  this.sMessage = resp.message;
+                }
+          },
+          error: (error:any)=>{
+             return this.eMessage = error;
+          }
+        })
     }
 
     ngOnInit(): void {
