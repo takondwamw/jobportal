@@ -1,1 +1,78 @@
-<p>jobs-create works!</p>
+<section class="container-fluid body-background">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+              class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+              alt="Sample photo"> -->
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Create Job </h3>
+              <!-- <div class="col-12 alert alert-sucesss bg-success text-white rounded" *ngIf="sMessage">{{ sMessage }}</div> -->
+
+              <!-- <div class="col-12 alert alert-danger rounded bg-danger text-white" *ngIf="eMessage">{{ eMessage }}</div> -->
+
+              <!-- <div  *ngIf="isHiring"> -->
+                <form class="px-md-2">
+                
+                  <!-- <h2 class="text-center">Login</h2> -->
+                  
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example1q" [(ngModel)]="jobObj.jobName" name="JobName" class="form-control" />
+                    <label class="form-label" for="form3Example1q">Job Name</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example1q" [(ngModel)]="jobObj.Experience" name="Experience" class="form-control" />
+                    <label class="form-label" for="form3Example1q">Experience</label>
+                  </div>
+
+                  
+                  <div class="row">
+                        <div class="col-md-6 form-outline mb-4">
+                            <input type="text" class="form-control" [(ngModel)]="jobObj.Location" name="Location">
+                            <label for="location" class="form-label">Location</label>
+                        </div>
+
+                        <div class="col-md-6 form-outline mb-4">
+                            <select class="form-control" [(ngModel)]="jobObj.CategoryId" name="CategoryId">
+                                <option selected disabled>Select Job Category</option>
+                                <option *ngFor="let category of jobCategory" [ngValue]="jobCategory.jobCategoryId"> {{  jobCategory.categoryName }}</option>
+                            </select>
+
+                            <label for="location" class="form-label">Job Category</label>
+                        </div>
+                                                
+                  </div>
+
+                  <div class="row">
+                        <div class="col-md-6 form-outline mb-4">
+                            <input type="text" id="form3Example1q" [(ngModel)]="jobObj.Package" name="Package" class="form-control" />
+                            <label class="form-label" for="form3Example1q">Salary</label>
+                        </div>
+                        
+                        <div class="col-md-6 form-outline mb-4">
+                            <input type="radio" value="true" id="form3Example1q" [(ngModel)]="jobObj.IsActive" name="IsActive" class="form-control-check" />
+                            <label class="form-label" for="form3Example1q">Is Active</label>
+                        </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <textarea  id="form3Example1q" [(ngModel)]="jobObj.JobDescription" name="JobDescription" class="form-control" rows="5"></textarea>
+                     <label class="form-label" for="form3Example1q">Job Description</label>
+                  </div>              
+
+                  
+    
+                  <button type="submit" class="btn btn-success btn-lg mb-1">Post Job </button>
+    
+                </form>
+              <!-- </div> -->
+             
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

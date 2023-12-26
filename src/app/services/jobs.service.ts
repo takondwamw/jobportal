@@ -23,4 +23,9 @@ export class JobsService {
     // http://freeapi.miniprojectideas.com/api/JobPortal/GetJobListingById?jobId=82
     return this._http.get(`${environment._baseUrl}/GetJobListingById?jobId=${id}`);
   }
+
+  getJobCategory():Observable<any>{
+    // http://freeapi.miniprojectideas.com/api/JobPortal/GetAllJobCategory
+    return this._http.get(`${environment._baseUrl}/GetAllJobCategory`);
+  }
 }
