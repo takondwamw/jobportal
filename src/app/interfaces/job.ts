@@ -13,6 +13,6 @@ export interface Job {
     location: string,
     logoURL: string,
     companyName: string,
-    jobId: number
-
+    jobId: number,
+    jobDescription:string,
 }

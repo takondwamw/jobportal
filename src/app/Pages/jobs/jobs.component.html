@@ -5,11 +5,11 @@
                 <div class="card"> 
                     <div class="card-body">
                         <h6 class="text-center">All Filter</h6>
-                        <ul class="list-item-group">
-                            <li class="list-item">
-                                <a (click)="byActiveJobs()">Active Jobs <span class="badge bg-muted">{{ activeJobs.length }}</span></a>
-                            </li>
-                        </ul>
+                        <!-- <ul class="list-group unstyled"> -->
+                            <!-- <li class="list-item"> -->
+                                <a (click)="byActiveJobs()" class="nav-item" role="button">Active Jobs <span class="badge bg-muted">{{ activeJobs.length }}</span></a>
+                            <!-- </li> -->
+                        <!-- </ul> -->
                     </div>
                 </div> 
             </div>
@@ -24,7 +24,7 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <h6 style="margin-bottom: 0;">{{ job.jobName }}</h6>
-                                                    <a>Ford</a>
+                                                    <a>{{ job.companyName}}</a>
                                                 </div>
                                             </div> 
                                         </div>

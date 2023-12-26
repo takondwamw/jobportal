@@ -13,6 +13,7 @@ import { MyJobsComponent } from './Pages/my-jobs/my-jobs.component';
 import { JobsCreateComponent } from './Pages/jobs-create/jobs-create.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { ReactiveFormsModule , FormsModule } from '@angular/forms';
     JobListingComponent,
     JobsComponent,
     MyJobsComponent,
-    JobsCreateComponent
+    JobsCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +33,7 @@ import { ReactiveFormsModule , FormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [JobsComponent],
   bootstrap: [AppComponent]

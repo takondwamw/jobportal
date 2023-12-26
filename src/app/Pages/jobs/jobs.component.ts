@@ -11,12 +11,12 @@ export class JobsComponent implements OnInit {
 
   activeJobs!: Job[];
   allJobs!: Job[];
-  jobs!: Job[];
+  jobs: Job[] = [];
 
   constructor(private _jobService: JobsService ){
     this._jobService.Activejobs().subscribe({
       next: (resp: any)=>{
-        console.log(resp);
+        console.log(resp.data);
         this.activeJobs = resp.data;
       },
       error: (error:any)=>{
@@ -27,8 +27,9 @@ export class JobsComponent implements OnInit {
 
     this._jobService.allJobs().subscribe({
       next: (resp: any)=>{
-        console.log(resp);
+        console.log(resp.data);
         this.allJobs = resp.data;
+        this.jobs = resp.data;
       },
       error: (error:any)=>{
         console.log(error);
