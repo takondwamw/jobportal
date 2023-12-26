@@ -12,11 +12,15 @@ export class JobsComponent implements OnInit {
   activeJobs!: Job[];
   allJobs!: Job[];
   jobs: Job[] = [];
+  isLoading!:boolean;
 
   constructor(private _jobService: JobsService ){
+    this.isLoading = true;
     this._jobService.Activejobs().subscribe({
       next: (resp: any)=>{
-        console.log(resp.data);
+        this.isLoading =false;
+        // console.log(resp.data);
+
         this.activeJobs = resp.data;
       },
       error: (error:any)=>{
@@ -27,7 +31,8 @@ export class JobsComponent implements OnInit {
 
     this._jobService.allJobs().subscribe({
       next: (resp: any)=>{
-        console.log(resp.data);
+        // console.log(resp.data);
+        this.isLoading =false;
         this.allJobs = resp.data;
         this.jobs = resp.data;
       },
@@ -38,12 +43,11 @@ export class JobsComponent implements OnInit {
 
   }
 ngOnInit(): void {
+  // this.isLoading = true;
   this.jobs = this.allJobs;
 }
 byActiveJobs(){
   return this.jobs = this.activeJobs;
 }
-
-
 
 }
