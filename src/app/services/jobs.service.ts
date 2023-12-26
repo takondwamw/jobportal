@@ -10,8 +10,13 @@ export class JobsService {
 
   constructor( private _http: HttpClient) { }
 
-  // getAll jobs  http://freeapi.miniprojectideas.com/api/JobPortal/GetActiveJobListing
+  // getAll Active jobs  http://freeapi.miniprojectideas.com/api/JobPortal/GetActiveJobListing
   Activejobs(): Observable<any>{
     return this._http.get(`${environment._baseUrl}/GetActiveJobListing`);
+  }
+
+  allJobs():Observable<any>{
+    // get all jobs  http://freeapi.miniprojectideas.com/api/JobPortal/GetAllJobListing
+    return  this._http.get(`${environment._baseUrl}/GetAllJobListing`);
   }
 }
