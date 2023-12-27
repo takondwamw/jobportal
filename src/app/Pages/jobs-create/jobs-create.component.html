@@ -37,7 +37,7 @@
                         <div class="col-md-6 form-outline mb-4">
                             <select class="form-control" [(ngModel)]="jobObj.CategoryId" name="CategoryId">
                                 <option selected disabled>Select Job Category</option>
-                                <option *ngFor="let category of jobCategory" [ngValue]="jobCategory.jobCategoryId"> {{  jobCategory.categoryName }}</option>
+                                <option *ngFor="let category of jobCategory" value="{{ jobCategory.jobCategoryId }}"> {{  jobCategory.categoryName }}</option>
                             </select>
 
                             <label for="location" class="form-label">Job Category</label>
