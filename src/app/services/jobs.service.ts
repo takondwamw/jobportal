@@ -28,4 +28,8 @@ export class JobsService {
     // http://freeapi.miniprojectideas.com/api/JobPortal/GetAllJobCategory
     return this._http.get(`${environment._baseUrl}/GetAllJobCategory`);
   }
+  postjob(data: any):Observable<any>{
+    // http://freeapi.miniprojectideas.com/api/JobPortal/CreateNewJobListing
+    return this._http.post(`${environment._baseUrl}/CreateNewJobListing`,data);
+  }
 }

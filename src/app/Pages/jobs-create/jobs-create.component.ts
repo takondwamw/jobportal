@@ -35,4 +35,20 @@ export class JobsCreateComponent {
     })
   }
 
+  createJob(){
+    this.jobService.postjob(this.jobObj).subscribe({
+      next: (response: any) => {
+        if(response.result){
+          alert(response.message);
+          console.log(response.data);
+        }else{
+          alert("request failed")
+        }
+      },
+      error: (error :any) => {
+        console.log(error);
+      }
+    })
+  }
+
 }
