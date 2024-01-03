@@ -13,9 +13,11 @@ export class JobsComponent implements OnInit {
   allJobs!: Job[];
   jobs: Job[] = [];
   isLoading!:boolean;
+ 
 
   constructor(private _jobService: JobsService ){
     this.isLoading = true;
+
     this._jobService.Activejobs().subscribe({
       next: (resp: any)=>{
         this.isLoading =false;
@@ -45,6 +47,7 @@ export class JobsComponent implements OnInit {
 ngOnInit(): void {
   // this.isLoading = true;
   this.jobs = this.allJobs;
+
 }
 byActiveJobs(){
   return this.jobs = this.activeJobs;

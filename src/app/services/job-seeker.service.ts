@@ -15,4 +15,9 @@ export class JobSeekerService {
   registerAsJobSeeker(data:JobSeeker): Observable<any>{
       return this._http.post(`${environment._baseUrl}/AddNewJobSeeker`,data);
   }
+
+  sendJobApplication(data:any): Observable<any>{
+    return this._http.post(`${environment._baseUrl}/SendJobApplication`,data)
+  }
+
 }

@@ -44,9 +44,9 @@
                                         <i class="fa fa-bookmark" aria-hidden="true"></i>
                                     </div>
                                     <div class="col-7 text-end">
-                                        <button class="btn btn-outline-primary round-button mx-2"
+                                        <button *ngIf="isLoggedIn" (click)="apply()" class="btn btn-outline-primary round-button mx-2"
                                             type="button">Apply</button>
-                                        <button class="btn btn-primary round-button" type="button">Login To
+                                        <button *ngIf="!isLoggedIn"  routerLink="login"  class="btn btn-primary round-button" type="button">Login To
                                             Apply</button>
                                     </div>
                                 </div>

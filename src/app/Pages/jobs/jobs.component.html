@@ -27,32 +27,32 @@
                                         <div class="col-8">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <h6 style="margin-bottom: 0;">{{ job.jobName }}</h6>
+                                                    <h6 style="margin-bottom: 0;">{{ job?.jobName }}</h6>
                                                     <a>{{ job.companyName}}</a>
                                                 </div>
                                             </div> 
                                         </div>
                                         <div class="col-4 text-end">
-                                            <img class="compo_logo" src="{{ job.logoURL}}" alt="">
+                                            <img class="compo_logo" src="{{ job?.logoURL}}" alt="">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-4">
                                             <i class="fa fa-suitcase" aria-hidden="true"></i> 
-                                            {{ job.experience}}  
+                                            {{ job?.experience}}  
                                         </div>
                                         <div class="col-4">
                                             <i class="fa fa-inr" aria-hidden="true"></i> \
-                                            {{ job.package}}  
+                                            {{ job?.package}}  
                                         </div>
                                         <div class="col-4">
                                             <i class="fa fa-map-marker" aria-hidden="true"></i> 
-                                            {{ job.location }}
+                                            {{ job?.location }}
                                         </div>
                                     </div>
                                     <div class="row pt-1">
                                         <div class="col-12">
-                                            <i class="fa fa-file-text-o" aria-hidden="true"></i> <span class="text-muted"> {{ job.companyName }}</span>
+                                            <i class="fa fa-file-text-o" aria-hidden="true"></i> <span class="text-muted"> {{ job?.companyName }}</span>
                                         </div>
                                     </div>
                                     <div class="row pt-1">
@@ -62,6 +62,8 @@
                                         <div class="col-6 text-end">
                                             <i class="fa fa-bookmark" aria-hidden="true"></i>
                                         </div>
+
+                                        
                                     </div>
                               </a>
                             </div>
